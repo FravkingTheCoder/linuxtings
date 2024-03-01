@@ -1,0 +1,47 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# default editor
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+
+# aliases 
+alias dnfinstall="sudo dnf install -y"
+alias dnfupdate="sudo dnf upgrade && sudo dnf upgrade"
+alias dnfremove="sudo dnf remove -y"
+alias bashconfig="vim .bashrc"
+alias vim="nvim"
+alias sudoedit="sudo --edit"
+alias dnfsearch="sudo dnf search"
+alias ll="eza --long --all"
+alias ls="eza --all"
+alias cat="bat"
+
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(starship init bash)"
+
