@@ -1,0 +1,54 @@
+# .bashrc
+# startup of bash
+pokemon-colorscripts -n rayquaza -f mega --no-title -s
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+export PATH=/home/frav/cool_scripts:$PATH
+
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# default editor
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# aliases
+alias sp="sudo pacman"
+alias ps="sudo pacman -S"
+alias psy="sudo pacman -Syu && paru -Sua"
+alias pr="sudo pacman -Rs"
+alias pf="sudo pacman -Ss"
+alias bashconfig="vim .bashrc"
+alias vim="nvim"
+alias sudoedit="sudo --edit"
+alias dnfsearch="sudo dnf search"
+alias ll="eza --long --all"
+alias ls="eza --all"
+alias cat="bat"
+
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(starship init bash)"
+
+
+
