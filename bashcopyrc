@@ -13,7 +13,7 @@ fi
 export PATH
 
 export PATH=/home/frav/cool_scripts:$PATH
-
+export PATH="/usr/lib/ccache/bin/:$PATH"
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
@@ -23,18 +23,21 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 # aliases
-alias sp="sudo pacman"
-alias ps="sudo pacman -S"
-alias psy="sudo pacman -Syu && paru -Sua"
-alias pr="sudo pacman -Rs"
-alias pf="sudo pacman -Ss"
-alias bashconfig="vim .bashrc"
-alias vim="nvim"
-alias sudoedit="sudo --edit"
-alias dnfsearch="sudo dnf search"
-alias ll="eza --long --all"
-alias ls="eza --all"
-alias cat="bat"
+#alias sp="sudo pacman"
+#alias ps="sudo pacman -S"
+#alias psdeps="sudo pacman -S --asdeps"
+#alias psy="sudo pacman -Syu && yay -Sua"
+#alias pr="sudo pacman -Rs"
+#alias pf="sudo pacman -Ss"
+#alias psi="sudo pacman -Si"
+#alias bashconfig="vim .bashrc"
+#alias vim="nvim"
+#alias sudoedit="sudo --edit"
+#alias dnfsearch="sudo dnf search"
+#alias ll="eza --long --all"
+#alias ls="eza --all"
+#alias cat="bat"
+#alias i3conf="vim .config/i3/config"
 
 
 # User specific aliases and functions
@@ -49,6 +52,7 @@ unset rc
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init bash)"
+
 
 
 
