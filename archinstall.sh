@@ -9,20 +9,16 @@ makepkg -si
 cd
 
 echo installing cinnamon and other stuff
-sudo pacman -S cinnamon ly neovim npm terminator lxappearance flameshot lxsession lxrandr thunar thunar-volman thunar-archive-plugin thunar-media-tags-plugin tumbler ffmpeg ffmpegthumbnailer webp-pixbuf-loader feh eog picom network-manager-applet blueberry blueman alsa-utils pamixer mpv yt-dl okular celluloid qjackctl gnome-keyring eza bat ripgrep go flatpak qbittorrent ranger w3m ueberzug highlight atool libcaca
+sudo pacman -S neovim npm terminator lxappearance flameshot mate-polkit lxrandr thunar thunar-volman thunar-archive-plugin thunar-media-tags-plugin tumbler ffmpeg ffmpegthumbnailer webp-pixbuf-loader nitrogen eog picom network-manager-applet blueberry blueman alsa-utils pamixer mpv yt-dlp okular celluloid qjackctl gnome-keyring eza bat ripgrep go flatpak qbittorrent ranger w3m ueberzug highlight atool libcaca starship unzip atuin kitty zip gzip ripgrep xsel fastfetch
 
-echo installing important gaming stuff
-sudo pacman -S --needed lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
-sudo pacman -S --needed wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls \
-mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error \
-lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo \
-sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama \
-ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt lib32-libxslt libva lib32-libva gtk3 \
-lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
-sudo pacman -S steam lutris gamemode mangohud gamescope lib32gamemode winetricks
+echo Done.
 
+echo adding atuin and ble.sh
+git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
+make -C ble.sh install PREFIX=~/.local
+cd
 
-echo Done... 
+echo Done.
 
 echo installing fonts...
 mkdir .fonts
@@ -39,16 +35,23 @@ fc-cache
 cd
 
 echo Done
-flatpak install flathub us.zoom.Zoom
-flatpak install flathub com.spotify.Client
-flatpak install flathub com.github.IsmaelMartinez.teams_for_linux
 flatpak install flathub net.davidotek.pupgui2
-
+flatpak install flathub com.github.tchx84.Flatseal
+flatpak install flathub com.spotify.Client
+flatpak install flathub org.kryogenix.Pick
 echo Done
+
+echo copying over neovim and kitty.conf
+git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+cd
+cd linuxtings
+cp kittycopy /home/fravlos/.config/kitty/kitty.conf
+cd
+
 echo copying bashfile
 cp linuxtings/bashcopyrc .bashrc
 echo done
 
-echo enabling ly and restarting
-sudo systemctl enable ly
+echo
+
 reboot
