@@ -59,6 +59,10 @@ cd
 cp linuxtings/bashcopyrc .bashrc
 echo done
 
+echo dwm dependencies 
+cd linuxtings
+./dwm_dependencies
+cd
 echo rebooting
 
 reboot
