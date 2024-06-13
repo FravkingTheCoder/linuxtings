@@ -9,7 +9,7 @@ makepkg -si
 cd
 
 echo installing cinnamon and other stuff
-sudo pacman -S neovim npm terminator lxappearance flameshot mate-polkit lxrandr thunar thunar-volman thunar-archive-plugin thunar-media-tags-plugin tumbler ffmpeg ffmpegthumbnailer webp-pixbuf-loader nitrogen eog picom network-manager-applet blueberry blueman alsa-utils pamixer mpv yt-dlp okular celluloid qjackctl gnome-keyring eza bat ripgrep go flatpak qbittorrent ranger w3m ueberzug highlight atool libcaca starship unzip atuin kitty zip gzip ripgrep xsel fastfetch wget
+sudo pacman -S cinnamon neovim npm terminator lxappearance flameshot mate-polkit lxrandr thunar thunar-volman thunar-archive-plugin thunar-media-tags-plugin tumbler ffmpeg ffmpegthumbnailer webp-pixbuf-loader nitrogen eog picom network-manager-applet blueberry blueman alsa-utils pamixer mpv yt-dlp okular celluloid qjackctl gnome-keyring eza bat ripgrep go flatpak qbittorrent ranger w3m ueberzug highlight atool libcaca starship unzip atuin kitty zip gzip ripgrep xsel fastfetch wget
 
 echo Done.
 
@@ -50,9 +50,15 @@ mv poke.txt /home/fravlos
 cd
 
 echo copying bashfile
+mkdir -p ~/build
+cd ~/build
+git clone https://github.com/christitustech/mybash
+cd mybash
+./setup.sh
+cd
 cp linuxtings/bashcopyrc .bashrc
 echo done
 
-echo
+echo rebooting
 
 reboot
