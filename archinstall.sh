@@ -46,6 +46,7 @@ git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HO
 cd
 cd linuxtings
 cp kittycopy /home/fravlos/.config/kitty/kitty.conf
+mv poke.txt /home/fravlos
 cd
 
 echo copying bashfile
