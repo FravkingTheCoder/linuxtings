@@ -9,7 +9,7 @@ makepkg -si
 cd
 
 echo installing cinnamon and other stuff
-sudo pacman -S neovim npm terminator lxappearance flameshot mate-polkit lxrandr thunar thunar-volman thunar-archive-plugin thunar-media-tags-plugin tumbler ffmpeg ffmpegthumbnailer webp-pixbuf-loader nitrogen eog picom network-manager-applet blueberry blueman alsa-utils pamixer mpv yt-dlp okular celluloid qjackctl gnome-keyring eza bat ripgrep go flatpak qbittorrent ranger w3m ueberzug highlight atool libcaca starship unzip atuin kitty zip gzip ripgrep xsel fastfetch wget rofi
+sudo pacman --no-confirm -S neovim npm terminator lxappearance flameshot mate-polkit lxrandr thunar thunar-volman thunar-archive-plugin thunar-media-tags-plugin tumbler ffmpeg ffmpegthumbnailer webp-pixbuf-loader nitrogen eog picom network-manager-applet blueberry blueman alsa-utils pamixer mpv yt-dlp okular celluloid qjackctl gnome-keyring eza bat ripgrep go flatpak qbittorrent ranger w3m ueberzug highlight atool libcaca starship unzip atuin kitty zip gzip ripgrep xsel fastfetch wget rofi otf-font-awesome
 
 echo Done.
 
@@ -37,16 +37,21 @@ cd
 echo Done
 flatpak install flathub net.davidotek.pupgui2
 flatpak install flathub com.github.tchx84.Flatseal
-flatpak install flathub com.spotify.Client
 flatpak install flathub org.kryogenix.Pick
+flatpak install flathub dev.vencord.Vesktop
+flatpak install flathub com.heroicgameslauncher.hgl
 echo Done
 
 echo copying over neovim and kitty.conf
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone https://github.com/FravkingTheCoder/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 cd
 cd linuxtings
-cp kittycopy /home/fravlos/.config/kitty/kitty.conf
-mv poke.txt /home/fravlos
+cp xinitcopy ~/.xinitrc
+cd
+chmod +x ~/.xinitrc
+
+#cp kittybk /home/fravlos/.config/kitty/kitty.conf
+#mv poke.txt /home/fravlos
 cd
 
 echo copying bashfile
