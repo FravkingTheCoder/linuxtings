@@ -33,6 +33,10 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Iosevka.zi
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/3270.zip
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/UbuntuMono.zip
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/SourceCodePro.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/ComicShannsMono.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/DroidSansMono.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Terminus.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/UbuntuMono.zip
 unzip -n \*.zip
 fc-cache
 cd
